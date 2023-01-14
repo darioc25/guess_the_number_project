@@ -1,0 +1,186 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: #264653;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-modal{
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-title{
+    margin: 10px 0px;
+    font-size: 30px;
+}
+
+.reset-game{
+    margin-top: 30px !important;
+    border: none;
+    padding: 20px 60px;
+    font-size: 18px;margin: 0px;
+}
+
+
+.header-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-title{
+    color: white;
+    font-size: 60px;
+    margin: 30px 0px 0px 0px;
+}
+
+.secret-number{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: black;
+    font-size: 80px;
+    width: 200px;
+    text-align: center;
+    margin: 40px 0px 0px 0px;
+    padding: 28px 10px 18px 20px;
+}
+
+.secret-number::after{
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 10px;
+    background-color: white;
+    right: -200px;
+}
+
+.secret-number::before{
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 10px;
+    background-color: white;
+    left: -200px;
+}
+
+.game-field{
+    margin-top: 160px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-info{
+    color: white;
+}
+
+.input-area{
+    display: flex;
+    flex-direction: column;
+    width: 380px;
+    height: 180px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Remove arrow from input style */
+.player-number::-webkit-outer-spin-button, .player-number::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.player-number{
+    padding: 20px 10px;
+    font-size: 38px;
+    border: none;
+    text-align: center;
+    height: 60%;
+}
+
+.player-number:focus{
+    outline: none;
+}
+
+.guess-button{
+    padding: 20px 0px;
+    border: none;
+    height: 40%;
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+}
+
+.guess-button:hover{
+    cursor: pointer;
+    background-color: #ffb703;
+    color: black;
+}
+
+.player-info{
+    color: white;
+}
+
+.no-render{
+    display: none;
+}
+
+@media screen and (max-width: 420px){
+    .modal-title{
+        font-size: 18px;
+    }
+
+    .main-title{
+        font-size: 36px;
+        text-align: center;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+
+    .secret-number::after{
+        content: "";
+        position: absolute;
+        width: 60px;
+        height: 10px;
+        background-color: white;
+        right: 100%;
+    }
+    
+    .secret-number::before{
+        content: "";
+        position: absolute;
+        width: 60px;
+        height: 10px;
+        background-color: white;
+        left: 100%;
+    }
+
+    .game-field{
+        margin-top: 60px;
+    }
+
+    .input-area{
+        width: 300px;
+    }
+}
