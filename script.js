@@ -9,7 +9,7 @@ const clearField = () => {
     setTimeout(() => {
         playerInfo.textContent = "Let's guess!";
         playerNumber.value = "";
-    }, 1000);
+    }, 1500);
 };
 
 // Elements selection
