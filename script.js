@@ -1,10 +1,4 @@
 // Functions
-const lostMatch = () => {
-    playerInfo.textContent = "Game lost!";
-    playerNumber.readOnly = true;
-    playerPoints = 0;
-};
-
 const clearField = () => {
     setTimeout(() => {
         playerInfo.textContent = "Let's guess!";
@@ -30,9 +24,9 @@ let randomNumber = Math.floor((Math.random() * 20) + 1);
 // Guess number button
 guessButton.addEventListener("click", () => {
     let inputValue = Number(playerNumber.value);
-
-    // Some score still avaible
+    // Score still avaible
     if(playerPoints > 1) {
+        // Input between 1 and 20
         if(inputValue && inputValue > 0 && inputValue <= 20) {
             // Correct number
             if(inputValue === randomNumber) {
@@ -43,32 +37,29 @@ guessButton.addEventListener("click", () => {
                 lastPlayerScore.textContent = playerPoints;
                 if(playerPoints > Number(highestScore.textContent)) highestScore.textContent = playerPoints;
                 setTimeout(() => {matchFinished.classList.remove("no-render");}, 2000);
-                // Wrong number
-            } else if(inputValue > randomNumber) {
-                playerInfo.textContent = "Too high!";
-                playerPoints--;
-                playerScore.textContent = playerPoints;
-                clearField();
-            } else if(inputValue < randomNumber) {
-                playerInfo.textContent = "Too lower!";
+            // Wrong number
+            } else {
+                playerInfo.textContent = (inputValue > randomNumber) ? "Too high!" : "Too lower!";
                 playerPoints--;
                 playerScore.textContent = playerPoints;
                 clearField();
             }
-            // No input
+        // No input
         } else if(!inputValue) {
             playerInfo.textContent = "Invalid input!";
             clearField();
-            // Out of range number
+        // Out of range number
         } else {
             playerInfo.textContent = "Out of range number";
             clearField();
         }
-        // No more score
+    // No more score avaible
     } else {
-        lostMatch();
-        playerScore.textContent = playerPoints;
+        playerNumber.readOnly = true;
+        playerPoints = 0;
         secretNumber.textContent = randomNumber;
+        playerInfo.textContent = "Game lost!";
+        playerScore.textContent = playerPoints;
         lastPlayerScore.textContent = playerPoints;
         setTimeout(() => {matchFinished.classList.remove("no-render");}, 2000);
     }
